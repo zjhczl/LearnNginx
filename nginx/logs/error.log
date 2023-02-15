@@ -1,0 +1,4 @@
+2023/02/14 15:17:26 [notice] 3316#5900: signal process started
+2023/02/14 16:04:28 [notice] 8612#7484: signal process started
+2023/02/14 16:06:55 [emerg] 10320#10644: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2023/02/14 16:08:25 [error] 14604#15260: *1 CreateFile() "C:\nginx/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:81", referrer: "http://localhost:81/"
