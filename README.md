@@ -101,7 +101,21 @@ location ~ \.php$ {
 sudo ln -s /etc/nginx/sites-available/my_site /etc/nginx/sites-enabled/
 sudo nginx -s reload
 ```
+## 反向代理tcp
+```
+stream {
+    upstream backend {
+        server 192.168.1.101:54321 max_fails=3 fail_timeout=30s;
+        server 192.168.1.102:54321 max_fails=3 fail_timeout=30s;
+        server 192.168.1.103:54321 max_fails=3 fail_timeout=30s;
+    }
 
+    server {
+        listen 12345;
+        proxy_pass backend;
+    }
+}
+```
 ## nginx配置密码保护
 要在 Nginx 中为目录设置基本的账号密码保护，您需要使用 auth_basic 指令来启用 HTTP 基本认证，并使用 auth_basic_user_file 指令指定一个包含用户名和密码的文件。以下是设置账号密码保护的步骤：
 
