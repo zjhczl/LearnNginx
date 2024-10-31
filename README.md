@@ -1,4 +1,4 @@
-﻿# LearnNginx
+# LearnNginx
 ## windows
 直接使用nginx安装包
 ## ubuntu
@@ -163,3 +163,23 @@ sudo rm -rf /etc/nginx
 sudo apt-get clean
 
 ```
+
+## nginx负载均衡
+nginx.conf
+```
+stream {
+    upstream backend {
+        server 101.132.151.231:28002 max_fails=3 fail_timeout=30;
+        server 10.58.32.11:22091 max_fails=3 fail_timeout=30;
+
+
+    }
+    server {
+        listen 28002; # 监听的端口可以是80或其他
+        proxy_pass backend; # 转发到定义的upstream
+    }
+}
+
+```
+
+
