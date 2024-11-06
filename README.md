@@ -5,6 +5,31 @@
 ```
 apt install nginx
 ```
+## ubuntu编译安装
+下载nginx包：http://nginx.org/en/download.html
+解压后，编译安装
+```
+./configure --prefix=/usr/local/nginx --with-http_ssl_module
+make
+sudo make install
+
+/usr/local/nginx/sbin/nginx
+```
+安装完成后，nginx可执行文件目录
+```
+/usr/local/nginx/sbin/nginx
+```
+配置文件目录
+```
+/usr/local/nginx/conf/nginx.conf
+```
+## 删除nginx
+```
+sudo /usr/local/nginx/sbin/nginx -s stop
+sudo rm -rf /usr/local/nginx
+
+```
+
 ## nginx结构
 ```
 ...              #全局块
