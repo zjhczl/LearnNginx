@@ -6,6 +6,8 @@
 apt install nginx
 ```
 ## ubuntu编译安装
+
+### ubuntu编译安装
 下载nginx包：http://nginx.org/en/download.html
 解压后，编译安装
 ```
@@ -23,12 +25,31 @@ sudo make install
 ```
 /usr/local/nginx/conf/nginx.conf
 ```
-## 删除nginx
+### 删除nginx
 ```
 sudo /usr/local/nginx/sbin/nginx -s stop
 sudo rm -rf /usr/local/nginx
 
 ```
+
+### nginx编译安装自启动
+```
+[Unit]
+Description=nginx-web
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/nginx/sbin/nginx -c /home/breton/breton_project/breton_user_server-x/frontend/nginx/nginx.conf
+ExecReload=/usr/local/nginx/sbin/nginx -s reload
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+```
+注意Type使用forking不然要出错
 
 ## nginx结构
 ```
